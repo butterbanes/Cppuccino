@@ -1,0 +1,83 @@
+# Based on Google C++ Style Guide with Java-style API exceptions
+
+BasedOnStyle: Google
+
+# -------------------------
+# Indentation & Layout
+# -------------------------
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+
+# -------------------------
+# Braces & Control Flow
+# -------------------------
+BreakBeforeBraces: Attach
+
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+# -------------------------
+# Alignment
+# -------------------------
+AlignAfterOpenBracket: Align
+AlignOperands: true
+AlignTrailingComments: true
+
+# -------------------------
+# Pointer & Reference Style
+# -------------------------
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+# Example:
+# int* ptr;   (preferred)
+# not int *ptr;
+
+# -------------------------
+# Includes
+# -------------------------
+IncludeBlocks: Preserve
+SortIncludes: true
+IncludeCategories:
+  - Regex: '^<.*>'
+    Priority: 1
+  - Regex: '^".*"'
+    Priority: 2
+
+# -------------------------
+# Spaces
+# -------------------------
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+
+# -------------------------
+# Constructor formatting
+# -------------------------
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerIndentWidth: 4
+
+# -------------------------
+# Java-style allowance tweaks
+# -------------------------
+# We intentionally do NOT enforce C++ naming conventions here.
+# Naming rules (camelCase, PascalCase) are handled in STYLE.md.
+
+# Keep method chains readable (important for wrapper APIs)
+AllowAllArgumentsOnNextLine: true
+
+# -------------------------
+# Penalty tuning (for readability over compactness)
+# -------------------------
+PenaltyBreakBeforeFirstCallParameter: 20
+PenaltyBreakString: 10
+PenaltyExcessCharacter: 100
+
+# -------------------------
+# Comments
+# -------------------------
+ReflowComments: true
