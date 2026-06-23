@@ -34,7 +34,7 @@ class Integer {
     static constexpr int32_t MIN_VALUE = -2147483648;
     static constexpr int32_t SIZE = 32;
 
-    Integer(int32_t i);
+    Integer(const int32_t& i);
     Integer(const std::string& str_val);
     Integer(const Integer& obj_Integer);
 
@@ -43,7 +43,7 @@ class Integer {
     static int32_t bitCount(int32_t i);
     std::byte byteValue();
 
-    static int32_t compare(int32_t x, int32_t y);
+    static int32_t compare(const int32_t& x, const int32_t& y);
     int32_t compareTo(const Integer& anotherInteger) const;
     static int32_t compareUnsigned(int32_t x, int32_t y);
 
@@ -57,11 +57,11 @@ class Integer {
     float floatValue();
 
     static Integer getInteger(const std::string& nm);
-    static Integer getInteger(const std::string& nm, int32_t val);
+    static Integer getInteger(const std::string& nm, const int32_t& val);
     static Integer getInteger(const std::string& nm, const Integer& val);
 
     int32_t hashCode();
-    static int32_t hashCode(int32_t val);
+    static int32_t hashCode(const int32_t& val);
     static int32_t hashCode(const Integer& val);
 
     static int32_t highestOneBit(int32_t i);
@@ -72,8 +72,8 @@ class Integer {
 
     static int32_t lowestOneBit(int32_t i);
 
-    static int32_t max(int32_t a, int32_t b);
-    static int32_t min(int32_t a, int32_t b);
+    static int32_t max(const int32_t& a, const int32_t& b);
+    static int32_t min(const int32_t& a, const int32_t& b);
 
     static int32_t numberOfLeadingZeroes(int32_t i);
     static int32_t numberOfTrailingZeroes(int32_t i);
@@ -98,16 +98,16 @@ class Integer {
 
     short shortValue();
 
-    static int32_t sigNum(int32_t i);
+    static int32_t sigNum(const int32_t& i);
 
-    static int32_t sum(int32_t a, int32_t b);
+    static int64_t sum(const int32_t& a, const int32_t& b);
 
-    static std::string toBinaryString(int32_t i);
-    static std::string toHexString(int32_t i);
-    static std::string toOctalString(int32_t i);
+    static std::string toBinaryString(const int32_t& i);
+    static std::string toHexString(const int32_t& i);
+    static std::string toOctalString(const int32_t& i);
 
     std::string toString();
-    static std::string toString(int32_t i);
+    static std::string toString(const int32_t& i);
     static std::string toString(
         int32_t i,
         int32_t radix);  // radix --> number base (i.e. 42 has base 10, 00100101 has base 2, etc..)
@@ -119,7 +119,7 @@ class Integer {
         int32_t i,
         int32_t radix);  // radix --> number base (i.e. 42 has base 10, 00100101 has base 2, etc..)
 
-    static Integer valueOf(int32_t i);
+    static Integer valueOf(const int32_t& i);
     static Integer valueOf(const std::string& str_val);
     static Integer valueOf(
         const std::string& str_val,
