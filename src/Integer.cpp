@@ -12,7 +12,7 @@ std::vector<Integer> Integer::cache = []() {
     return tempCache;
 }();
 
-Integer::Integer(int32_t i) {
+Integer::Integer(const int32_t& i) {
     this->integerValue = i;
 }
 
@@ -76,7 +76,7 @@ std::byte Integer::byteValue() {
  *  @param y Second comparison value
  *  @return the value 0 if x == y; a value less than 0 if x < y; and a value greater than 0 if x > y
  */
-int32_t Integer::compare(int32_t x, int32_t y) {
+int32_t Integer::compare(const int32_t& x, const int32_t& y) {
     return x == y ? 0 : x < y ? -1 : 1;
 }
 
@@ -234,7 +234,7 @@ Integer Integer::getInteger(const std::string& nm) {
  *
  *  @note For this we'll just use our previously defined decode() function
  */
-Integer Integer::getInteger(const std::string& nm, int32_t val) {
+Integer Integer::getInteger(const std::string& nm, const int32_t& val) {
     try {
         return decode(nm);
     } catch (const std::ios_base::failure& e) {
@@ -278,7 +278,7 @@ int32_t Integer::hashCode() {
  *  @param val The int32_t value to be hashed
  *  @returns A hash code for the passed int32_t value
  */
-int32_t Integer::hashCode(int32_t val) {
+int32_t Integer::hashCode(const int32_t& val) {
     return val;
 }
 
@@ -356,7 +356,7 @@ int32_t Integer::lowestOneBit(int32_t i) {
  *  @param b The second operand
  *  @returns The greater of *a* and *b*
  */
-int32_t Integer::max(int32_t a, int32_t b) {
+int32_t Integer::max(const int32_t& a, const int32_t& b) {
     return std::max(a, b);
 }
 
@@ -367,7 +367,7 @@ int32_t Integer::max(int32_t a, int32_t b) {
  *  @param b The second operand
  *  @returns The lesser of *a* and *b*
  */
-int32_t Integer::min(int32_t a, int32_t b) {
+int32_t Integer::min(const int32_t& a, const int32_t& b) {
     return std::min(a, b);
 }
 
@@ -617,8 +617,20 @@ short Integer::shortValue() {
  *  @param i The value whose signum is to be computed
  *  @returns the signum function of the specified int32_t value
  */
-int32_t Integer::sigNum(int32_t i) {
+int32_t Integer::sigNum(const int32_t& i) {
     return i < 0 ? -1 : i > 0 ? 1 : 0;
+}
+
+/**
+ *  @brief Adds two integers together as per the + operator
+ * 
+ *  @param a The first operand
+ *  @param b The second operand
+ * 
+ *  @returns The sum of a and b
+ */
+int64_t Integer::sum(const int32_t& a, const int32_t& b) {
+    return a + b;
 }
 
 /**
@@ -639,7 +651,7 @@ int32_t Integer::sigNum(int32_t i) {
  *  @returns the string representation of the unsigned int32_t value
  *           represented by the argument in binary (base 2)
  */
-std::string Integer::toBinaryString(int32_t i) {
+std::string Integer::toBinaryString(const int32_t& i) {
     return std::bitset<sizeof(int32_t) * 8>(i).to_string();
 }
 
@@ -670,7 +682,7 @@ std::string Integer::toBinaryString(int32_t i) {
  *  @returns the string representation of the unsigned int32_t value
  *           represented by the argument in hexadecimal (base 16)
  */
-std::string Integer::toHexString(int32_t i) {
+std::string Integer::toHexString(const int32_t& i) {
     std::stringstream ss;
     ss << std::hex << i;
     return ss.str();
@@ -694,7 +706,7 @@ std::string Integer::toHexString(int32_t i) {
  *  @returns the string representation of the unsigned int32_t value
  *           represented by the argument in octal (base 8)
  */
-std::string Integer::toOctalString(int32_t i) {
+std::string Integer::toOctalString(const int32_t& i) {
     std::stringstream ss;
     ss << std::oct << i;
     return ss.str();
@@ -724,7 +736,7 @@ std::string Integer::toString() {
  *  @param i The int32_t to be converted
  *  @returns A string representation of the argument in base 10
  */
-std::string Integer::toString(int32_t i) {
+std::string Integer::toString(const int32_t& i) {
     return Integer(i).toString();
 }
 
@@ -856,7 +868,7 @@ std::string Integer::toUnsignedString(int32_t i, int32_t radix) {
  *  @param i An int32_t value
  *  @returns An int32_t instance representing *i*
  */
-Integer Integer::valueOf(int32_t i) {
+Integer Integer::valueOf(const int32_t& i) {
     if (i >= LOW && i <= HIGH) {
         return cache[i - LOW];
     }
