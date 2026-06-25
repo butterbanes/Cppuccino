@@ -47,10 +47,10 @@ As the short title description suggests, this project aims to provide a new sens
 ### List of Fully Available Headers
 
 - Integer
+- Bool
 
 ### Headers Not Yet Implemented
 
-- Bool
 - Byte
 - Character
 - Double
