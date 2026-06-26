@@ -4,7 +4,7 @@
 const Bool Bool::FALSE = Bool(false);
 const Bool Bool::TRUE = Bool(true);
 
-Bool::Bool(const bool& value) {
+Bool::Bool(bool value) {
     this->truthValue = value;
 }
 
@@ -30,7 +30,7 @@ Bool::Bool(const char* s) {
  *           auto myBool = Bool::create(true);
  *           ```
  */
-std::unique_ptr<Bool> Bool::create(const bool& value) {
+std::unique_ptr<Bool> Bool::create(bool value) {
     return std::make_unique<Bool>(value);
 }
 
@@ -54,7 +54,7 @@ bool Bool::boolValue() const {
  *           < 0 IF !x && y, 
  *           > 0 IF x && !y
  */
-int8_t Bool::compare(const bool& x, const bool& y) {
+int8_t Bool::compare(bool x, bool y) {
     return (x == y) ? 0 : (x ? 1 : -1); 
 }
 
@@ -132,7 +132,7 @@ int16_t Bool::hashCode() const {
  *  @param value The bool value to get a hash code of
  *  @returns a hash code for a bool value
  */
-int16_t Bool::hashCode(const bool& value){
+int16_t Bool::hashCode(bool value){
     return value ? 1231 : 1237;
 }
 
@@ -144,7 +144,7 @@ int16_t Bool::hashCode(const bool& value){
  *  @param b The second operand
  *  @returns The logical AND of both operands 
  */
-bool Bool::logicalAnd(const bool& a, const bool& b) {
+bool Bool::logicalAnd(bool a, bool b) {
     return a && b;
 }
 
@@ -156,7 +156,7 @@ bool Bool::logicalAnd(const bool& a, const bool& b) {
  *  @param b The second operand
  *  @returns The logical OR of both operands 
  */
-bool Bool::logicalOr(const bool& a, const bool& b) {
+bool Bool::logicalOr(bool a, bool b) {
     return a || b;
 }
 
@@ -168,7 +168,7 @@ bool Bool::logicalOr(const bool& a, const bool& b) {
  *  @param b The second operand
  *  @returns The logical XOR of both operands 
  */
-bool Bool::logicalXor(const bool& a, const bool& b) {
+bool Bool::logicalXor(bool a, bool b) {
     return a ^ b;
 }
 
@@ -205,7 +205,7 @@ std::string Bool::toString() const {
  *  @param b The bool to be converted
  *  @returns a string represention of a bool
  */
-std::string Bool::toString(const bool& b) {
+std::string Bool::toString(bool b) {
     return (b ? "true" : "false");
 }
 
@@ -223,7 +223,7 @@ std::string Bool::toString(const bool& b) {
  *  @param b A bool value 
  *  @return a Bool instance representing b
  */
-Bool Bool::valueOf(const bool& b) {
+Bool Bool::valueOf(bool b) {
     return (b ? Bool::TRUE : Bool::FALSE);
 }
 

@@ -19,15 +19,15 @@ class Bool {
         static const Bool FALSE;
         static const Bool TRUE;
 
-        Bool(const bool& value);
+        Bool(bool value);
         Bool(const std::string& s);
         Bool(const char* s);
 
-        static std::unique_ptr<Bool> create(const bool& value);
+        static std::unique_ptr<Bool> create(bool value);
 
         bool boolValue() const;
 
-        static int8_t compare(const bool& x, const bool& y);
+        static int8_t compare(bool x, bool y);
         int8_t compareTo(const std::optional<Bool>& b) const;
 
         bool equals(const std::any& someObject) const;
@@ -35,18 +35,18 @@ class Bool {
         static bool getBool(std::string& name);
 
         int16_t hashCode() const;
-        static int16_t hashCode(const bool& value);
+        static int16_t hashCode(bool value);
 
-        static bool logicalAnd(const bool& a, const bool& b);
-        static bool logicalOr(const bool& a, const bool& b);
-        static bool logicalXor(const bool& a, const bool& b);
+        static bool logicalAnd(bool a, bool b);
+        static bool logicalOr(bool a, bool b);
+        static bool logicalXor(bool a, bool b);
         
         static bool parseBool(const std::string& s);
 
         std::string toString() const;
-        static std::string toString(const bool& b);
+        static std::string toString(bool b);
 
-        static Bool valueOf(const bool& b);
+        static Bool valueOf(bool b);
         static Bool valueOf(const std::string& s);
         static Bool valueOf(const char* s);
 
