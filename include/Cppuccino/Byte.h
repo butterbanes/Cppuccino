@@ -1,60 +1,86 @@
 #ifndef BYTE_H
 #define BYTE_H
 
+#include "./Integer.h" // decode(), parseInt(), toString()
+#include "./Character.h" // MIN_RADIX, MAX_RADIX
+
 #include <iostream>
 #include <cstdint>
 #include <any>
 #include <memory>
+#include <charconv>
+#include <format>
+#include <array>
 
 class Byte {
     private:
-        uint8_t byteValue;
+        int8_t bValue;
+
+        class ByteCache {
+            private:
+                ByteCache() {};
+            
+            public:
+                static std::array<Byte, 256> cache;
+                static bool initialized;
+
+                static void initialize();
+        };
     public:
-        static constexpr int8_t SIZE = 8; 
-        static constexpr int8_t BYTES = SIZE / Byte::SIZE;
+        static constexpr uint8_t SIZE = 8; 
+        static constexpr uint8_t BYTES = SIZE / Byte::SIZE;
         static constexpr int8_t MAX_VALUE = INT8_MAX;
         static constexpr int8_t MIN_VALUE = INT8_MIN;
 
-        Byte(uint8_t value) : byteValue(value) {};
+        explicit Byte(int8_t value) : bValue(value) {};
         Byte(const std::string& s);
         Byte(const char* s);
         
-        std::unique_ptr<Byte> create(uint8_t value);
+        std::unique_ptr<Byte> create(int8_t value);
 
-        uint8_t byteValue() const;
+        int8_t byteValue() const;
 
-        static int compare(uint8_t a, uint8_t b);
-        int compareTo(const Byte& anotherByte) const;
+        static int16_t compare(int8_t x, int8_t y);
+        int16_t compareTo(const Byte& anotherByte) const;
+        static uint16_t compareUnsigned(int8_t x, int8_t y);
 
         static Byte decode(const std::string& nm);
 
         double doubleValue() const;
 
-        bool equals(const std::any& obj);
+        bool equals(const std::any& someObject) const;
 
         float floatValue() const;
 
-        int hashCode() const;
-        static int hashCode(uint8_t value);
+        int32_t hashCode() const;
+        static int32_t hashCode(int8_t value);
 
-        int intValue() const;
+        int32_t intValue() const;
 
-        long longValue() const;
+        int64_t longValue() const;
 
-        static uint8_t parseByte(const std::string& s);
-        static uint8_t parseByte(const std::string& s, uint8_t radix);
+        static int8_t parseByte(const std::string& s);
+        static int8_t parseByte(const std::string& s, int8_t radix);
 
-        short shortValue() const;
+        int16_t shortValue() const;
 
-        static std::string toString(uint8_t b);
+        std::string toString() const;
+
+        static std::string toString(int8_t b);
         
-        static int8_t toUnsignedInt(uint8_t b);
+        static uint32_t toUnsignedInt(int8_t b);
         
-        static long toUnsignedLong(uint8_t b);
+        static uint64_t toUnsignedLong(int8_t b);
 
-        static Byte valueOf(uint8_t b);
+        static Byte valueOf(int8_t b);
 
-        static Byte valueOf(const std::string& s, uint8_t radix);
+        static Byte valueOf(const std::string& s);
+
+        static Byte valueOf(const std::string& s, int8_t radix);
+
+        /** OVERLOADED **/
+        auto operator<=>(const Byte& rhs) const = default;
+        friend std::ostream& operator<<(std::ostream& out, const Byte& obj);
 };
 
 #endif // BYTE_H
