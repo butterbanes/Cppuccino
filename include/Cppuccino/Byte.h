@@ -32,17 +32,18 @@ class Byte {
         static constexpr int8_t MAX_VALUE = INT8_MAX;
         static constexpr int8_t MIN_VALUE = INT8_MIN;
 
+        explicit Byte() : bValue(0) {};
         explicit Byte(int8_t value) : bValue(value) {};
-        Byte(const std::string& s);
-        Byte(const char* s);
+        explicit Byte(const std::string& s);
+        explicit Byte(const char* s);
         
-        std::unique_ptr<Byte> create(int8_t value);
+        static std::unique_ptr<Byte> create(int8_t value);
 
         int8_t byteValue() const;
 
         static int16_t compare(int8_t x, int8_t y);
         int16_t compareTo(const Byte& anotherByte) const;
-        static uint16_t compareUnsigned(int8_t x, int8_t y);
+        static int16_t compareUnsigned(int8_t x, int8_t y);
 
         static Byte decode(const std::string& nm);
 
