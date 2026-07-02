@@ -48,10 +48,10 @@ As the short title description suggests, this project aims to provide a new sens
 
 - Integer
 - Bool
+- Byte
 
 ### Headers Not Yet Implemented
 
-- Byte
 - Character
 - Double
 - Float
