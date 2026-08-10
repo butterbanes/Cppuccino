@@ -4,6 +4,7 @@ add_executable(Cppuccino_unit_tests
     Integer/Integer_unit_tests.cpp
     Bool/Bool_unit_tests.cpp
     Byte/Byte_unit_tests.cpp
+    Double/Double_unit_tests.cpp
 )
 
 target_link_libraries(Cppuccino_unit_tests
