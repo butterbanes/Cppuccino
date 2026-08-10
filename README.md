@@ -49,11 +49,11 @@ As the short title description suggests, this project aims to provide a new sens
 - Integer
 - Bool
 - Byte
+- Double
 
 ### Headers Not Yet Implemented
 
 - Character
-- Double
 - Float
 - Long
 - Short
