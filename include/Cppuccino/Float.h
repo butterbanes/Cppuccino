@@ -18,8 +18,8 @@ class Float {
         static constexpr int8_t SIZE = 32;
         static constexpr int8_t BYTES = SIZE / Byte::SIZE;
         static constexpr int8_t PRECISION = 24;
-        static constexpr int8_t MAX_EXPONENT = nlim<float>::max_exponent;
-        static constexpr int8_t MIN_EXPONENT = nlim<float>::min_exponent;
+        static constexpr int16_t MAX_EXPONENT = nlim<float>::max_exponent;
+        static constexpr int16_t MIN_EXPONENT = nlim<float>::min_exponent;
         static constexpr float MAX_VALUE = nlim<float>::max();
         static constexpr float MIN_VALUE = nlim<float>::denorm_min();
         static constexpr float MIN_NORMAL = nlim<float>::min();
@@ -36,7 +36,7 @@ class Float {
         static int8_t compare(float f1, float f2);
         int8_t compareTo(const Float& anotherFloat) const;
 
-        float doubleValue() const;
+        double doubleValue() const;
 
         bool equals(const std::any& obj) const;
         
@@ -65,7 +65,7 @@ class Float {
         static float max(float a, float b);
         static float min(float a, float b);
 
-        static float parsefloat(const std::string& s);
+        static float parseFloat(const std::string& s);
 
         int16_t shortValue() const;
 
