@@ -533,10 +533,10 @@ Double Double::valueOf(const std::string& s) {
  *  @param rhs The other Double to compare to
  *  @returns true || false;
  *           dependent on what is returned by calling
- *           Double::compareTo(Double);
+ *           Double::equals(std::any);
  */
 bool Double::operator==(const Double& rhs) const {
-    return this->compareTo(rhs) == 0;
+    return this->equals(rhs);
 }
 
 
