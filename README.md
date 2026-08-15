@@ -50,11 +50,11 @@ As the short title description suggests, this project aims to provide a new sens
 - Bool
 - Byte
 - Double
+- Float
 
 ### Headers Not Yet Implemented
 
 - Character
-- Float
 - Long
 - Short
 
