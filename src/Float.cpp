@@ -7,6 +7,42 @@ Float::Float(const std::string& s) {
 }
 
 /**
+ *  @brief Creates a memory-safe Float objet using smart pointers.
+ *         The goal of this function is to mimic overloading the *new* operator
+ *         since no such actual overload is possible since the original *new*
+ *         operator requires a direct return of a raw void* (which isn't
+ *         considered safe ofc). Think of this as just another constructor.
+ *
+ *  @param val The double value to use when allocating the Float obj
+ *  @returns A std::unique_ptr smart pointer, many prefer using the *auto*
+ *           keyword to ease the initialization of a variable of such type
+ *           ```cpp
+ *           auto myFloat = Float::create(15.0);
+ *           ```
+ */
+std::unique_ptr<Float> Float::create(double value) {
+    return std::make_unique<Float>(value);
+}
+
+/**
+ *  @brief Creates a memory-safe Float objet using smart pointers.
+ *         The goal of this function is to mimic overloading the *new* operator
+ *         since no such actual overload is possible since the original *new*
+ *         operator requires a direct return of a raw void* (which isn't
+ *         considered safe ofc). Think of this as just another constructor.
+ *
+ *  @param val The float value to use when allocating the Float obj
+ *  @returns A std::unique_ptr smart pointer, many prefer using the *auto*
+ *           keyword to ease the initialization of a variable of such type
+ *           ```cpp
+ *           auto myFloat = Float::create(15.0f);
+ *           ```
+ */
+std::unique_ptr<Float> Float::create(float value) {
+    return std::make_unique<Float>(value);
+}
+
+/**
  *  @brief Returns the value of *this* Float as a int8_t byte value
  *         after a narrowing primitive conversion
  * 

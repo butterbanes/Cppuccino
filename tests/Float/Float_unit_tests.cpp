@@ -25,6 +25,14 @@ TEST(FloatTest, CheckTypeReturnedByConstructors) {
     EXPECT_EQ(typeid(Float("15.5")), typeid(Float)) << "Should be 'Float'";
 }
 
+TEST(FloatTest, CreateFunction) {
+    EXPECT_EQ(typeid(Float::create(15.0)).name(), typeid(std::unique_ptr<Float>).name());
+    EXPECT_NE(Float::create(15.0), nullptr);
+    
+    EXPECT_EQ(typeid(Float::create(15.0f)).name(), typeid(std::unique_ptr<Float>).name());
+    EXPECT_NE(Float::create(15.0f), nullptr);
+}
+
 TEST(FloatTest, ByteValueFunction) {
     EXPECT_EQ(Float(15.5f).byteValue(), static_cast<int8_t>(15));
     EXPECT_EQ(Float(-16.5f).byteValue(), static_cast<int8_t>(-16));
