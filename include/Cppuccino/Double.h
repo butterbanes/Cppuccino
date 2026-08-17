@@ -40,6 +40,8 @@ class Double
         Double(double value) : dValue(static_cast<double>(value)) {};
         Double(const std::string& s);
 
+        static std::unique_ptr<Double> create(double value);
+
         int8_t byteValue() const;
 
         static int8_t compare(double d1, double d2);

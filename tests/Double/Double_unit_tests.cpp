@@ -24,6 +24,11 @@ TEST(DoubleTest, CheckTypeReturnedByConstructors) {
     EXPECT_EQ(typeid(Double("15.5")), typeid(Double)) << "Should be 'Double'";
 }
 
+TEST(DoubleTest, CreateFunction) {
+    EXPECT_EQ(typeid(Double::create(15.0)).name(), typeid(std::unique_ptr<Double>).name());
+    EXPECT_NE(Double::create(15.0), nullptr);
+}
+
 TEST(DoubleTest, ByteValueFunction) {
     EXPECT_EQ(Double(15.9).byteValue(), static_cast<int8_t>(15));
     EXPECT_EQ(Double(-16.2).byteValue(), static_cast<int8_t>(-16));
