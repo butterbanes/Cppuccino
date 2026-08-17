@@ -31,6 +31,9 @@ class Float {
         Float(float value) : fValue(static_cast<float>(value)) {};
         Float(const std::string& s);
 
+        static std::unique_ptr<Float> create(double value);
+        static std::unique_ptr<Float> create(float value);
+
         int8_t byteValue() const;
 
         static int8_t compare(float f1, float f2);
